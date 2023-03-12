@@ -1,11 +1,12 @@
 import { ListItem, Button } from './ContactsListItem.styled';
 import PropTypes from 'prop-types';
 
-export function ContactsListItem({ id, name, number, onDelete }) {
+export function ContactsListItem(props) {
+  const { id, name, number } = props.item;
   return (
     <ListItem>
       {`${name}: ${number}`}{' '}
-      <Button onClick={() => onDelete(id)}>Delete</Button>
+      <Button onClick={() => props.onDelete(id)}>Delete</Button>
     </ListItem>
   );
 }
